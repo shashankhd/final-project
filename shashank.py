@@ -1,8 +1,8 @@
-
+import os
 !pip install adafruit-io
 
 x = "SHASHANKHD" #ADAFRUIT_IO_USERNAME
-y = "aio_fjQf44u5CtSBWTdNGxlbboYJz5oQ"  #ADAFRUIT_IO_KEY
+y = os.getenv('adafruit_key)  #ADAFRUIT_IO_KEY
 
 from Adafruit_IO import Client, Feed
 aio = Client(x,y)
@@ -50,7 +50,7 @@ def off(bot,update):
     value = Data(value=0)
     value_send = aio.create_data('telebot',value)
 
-u = Updater('1079697131:AAGGO7o9iW3dBE3ZPiUDCPQX11z4FmhRVwY')
+u = Updater( os.getenv('telegram_key))
 dp = u.dispatcher
 dp.add_handler(CommandHandler('on',on))
 dp.add_handler(CommandHandler('off',off))
